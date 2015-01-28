@@ -54,7 +54,8 @@ $movies = $statement->fetchAll(PDO::FETCH_OBJ);
 
     <?php foreach($movies as $movie) : ?>
         <div>
-            <p><?php echo $movie->title ?></p>
+            <span class="glyphicon glyphicon-film"></span>
+            <p> <?php echo $movie->title ?></p>
             <p>
                 <?php echo $movie->genre_name ?>
                 <?php echo $movie->format_name ?>

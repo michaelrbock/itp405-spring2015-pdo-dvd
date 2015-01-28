@@ -32,11 +32,39 @@ $movies = $statement->fetchAll(PDO::FETCH_OBJ);
 
 ?>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
 <?php foreach($movies as $movie) : ?>
     <div>
-        <?php echo $movie->title ?>
-        <a href="/ratings.php?rating_name=<?php echo $movie->rating_name ?>">
-            <?php echo $movie->rating_name ?>
-        </a>
+        <span class="glyphicon glyphicon-film"></span>
+        <p>
+            Title: <?php echo $movie->title ?>
+        </p>
+        <p>
+            Genre: <?php echo $movie->genre_name ?>
+        </p>
+        <p>
+            Format: <?php echo $movie->format_name ?>,
+        </p>
+        <p>
+            Rating:
+            <a href="/ratings.php?rating_name=<?php echo $movie->rating_name ?>">
+                <?php echo $movie->rating_name ?>
+            </a>
+        </p>
     </div>
+    <br>
 <?php endforeach; ?>
+
+</body>
+</html>
